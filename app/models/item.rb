@@ -1,12 +1,18 @@
 class Item < ApplicationRecord
   belongs_to :list
-  validate :ID, length: {is:4 }
+  validates :ID, length: {is:4 }
 
 
 
   def 
     self.by_code 
-    order(:asc)
+    order(:code)
   end 
+
+  def item_price
+    "#{self.name} {self.price}"
+
+  end 
+
 
 end
